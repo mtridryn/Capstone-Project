@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Dermalyze - AI-powered skin analysis and skincare product recommendations"
+    />
+    <meta
+      name="keywords"
+      content="skincare, skin analysis, AI, beauty, dermatology, product recommendations"
+    />
+    <meta name="author" content="Dermalyze Team" />
+
+    <!-- Favicon - Using logo web.png -->
+    <link rel="icon" type="image/png" href="/images/logo web.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/images/logo web.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/images/logo web.png"
+    />
+    <link rel="shortcut icon" href="/images/logo web.png" />
+
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/logo web.png" />
+
+    <!-- Android Chrome -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/images/logo web.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="/images/logo web.png"
+    />
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Dermalyze - AI Skin Analysis" />
+    <meta
+      property="og:description"
+      content="Get personalized skincare recommendations with AI-powered skin analysis"
+    />
+    <meta property="og:image" content="/images/og-image.jpg" />
+    <meta property="og:url" content="https://dermalyze.app" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Dermalyze - AI Skin Analysis" />
+    <meta
+      name="twitter:description"
+      content="Get personalized skincare recommendations with AI-powered skin analysis"
+    />
+    <meta name="twitter:image" content="/images/twitter-card.jpg" />
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#f97316" />
+    <meta name="msapplication-TileColor" content="#f97316" />
+
+    <!-- Preconnect to external domains for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link rel="preconnect" href="https://api.rapidapi.com" />
+
+    <!-- Title -->
+    <title>Dermalyze - AI Skin Analysis & Skincare Recommendations</title>
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/styles/styles.css" as="style" />
+
+    <!-- MVP App Entry Point -->
+    <script type="module" src="/mvp-main.jsx"></script>
+
+    <!-- Development Tools -->
+    <script>
+      // Development mode detection
+      window.isDevelopment =
+        location.hostname === "localhost" || location.hostname === "127.0.0.1";
+
+      // Performance monitoring
+      window.performance.mark("app-start");
+
+      // MVP App info
+      window.mvpAppInfo = {
+        version: "1.0.0-mvp",
+        buildTime: new Date().toISOString(),
+        pattern: "MVP (Model-View-Presenter)",
+        features: [
+          "Authentication with MVP",
+          "Product Catalog with MVP",
+          "Skin Analysis with MVP",
+          "Dependency Injection",
+          "Error Handling",
+          "Offline Support",
+        ],
+      };
+
+      // Console welcome message
+      if (window.isDevelopment) {
+        console.log(`
+🎉 Welcome to Dermalyze MVP App!
+
+📊 Architecture: Model-View-Presenter (MVP)
+🚀 Version: ${window.mvpAppInfo.version}
+🔧 Mode: Development
+
+🛠️ Available Debug Tools:
+• window.mvpContainer - Dependency Injection Container
+• window.mvpDebug - Models and utilities
+• window.mvpAppInfo - App information
+
+📚 MVP Pattern Benefits:
+✅ Separation of Concerns
+✅ Better Testability  
+✅ Improved Maintainability
+✅ Dependency Injection
+✅ Error Handling
+        `);
+      }
+    </script>
+
+    <!-- Error Boundary Styles -->
+    <style>
+      /* Loading spinner for initial load */
+      .mvp-loading {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #fef3e2 0%, #fce7d1 100%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      }
+
+      .mvp-loading .spinner {
+        width: 40px;
+        height: 40px;
+        border: 4px solid #f3f4f6;
+        border-top: 4px solid #f97316;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin-bottom: 16px;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .mvp-loading .text {
+        color: #374151;
+        font-size: 16px;
+        font-weight: 500;
+        margin-bottom: 8px;
+      }
+
+      .mvp-loading .subtext {
+        color: #6b7280;
+        font-size: 14px;
+      }
+
+      /* Hide loading when app is ready */
+      .app-ready .mvp-loading {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Initial Loading Screen -->
+    <div class="mvp-loading">
+      <div class="spinner"></div>
+      <div class="text">Loading Dermalyze...</div>
+      <div class="subtext">Initializing MVP Architecture</div>
+    </div>
+
+    <!-- Main App Container -->
+    <div id="root"></div>
+
+    <!-- Fallback for JavaScript disabled -->
+    <noscript>
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          height: 100vh;
+          font-family: system-ui, -apple-system, sans-serif;
+          text-align: center;
+          padding: 20px;
+          background: linear-gradient(135deg, #fef3e2 0%, #fce7d1 100%);
+        "
+      >
+        <h1 style="color: #dc2626; margin-bottom: 16px">
+          ⚠️ JavaScript Required
+        </h1>
+        <p style="color: #6b7280; margin-bottom: 24px; max-width: 400px">
+          Dermalyze requires JavaScript to function properly. Please enable
+          JavaScript in your browser settings and refresh the page.
+        </p>
+        <button
+          onclick="window.location.reload()"
+          style="
+            background: #f97316;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+          "
+        >
+          🔄 Refresh Page
+        </button>
+      </div>
+    </noscript>
+
+    <!-- App Ready Script -->
+    <script>
+      // Hide loading screen when DOM is ready
+      document.addEventListener("DOMContentLoaded", () => {
+        setTimeout(() => {
+          document.body.classList.add("app-ready");
+          window.performance.mark("app-ready");
+
+          if (window.isDevelopment) {
+            const startTime = performance.getEntriesByName("app-start")[0];
+            const readyTime = performance.getEntriesByName("app-ready")[0];
+            const loadTime = readyTime.startTime - startTime.startTime;
+            console.log(`⚡ App ready in ${Math.round(loadTime)}ms`);
+          }
+        }, 100);
+      });
+    </script>
+  </body>
+</html>
